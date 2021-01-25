@@ -94,9 +94,9 @@ class TaskService extends BaseCallbackService
     /**
      * @return TaskDao
      */
-    public function getDaoObj(): TaskDao
-    {
-        return $this->daoObj;
-    }
+//    public function getDaoObj(): TaskDao
+//    {
+//        return $this->daoObj;
+//    }
 
 }

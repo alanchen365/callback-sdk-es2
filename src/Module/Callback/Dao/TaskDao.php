@@ -44,7 +44,7 @@ class TaskDao extends BaseDao
                 AND system.env = '{$env}'
               ";
 
-        $list = $this->query($sql);
+        $list = $this->querySql($sql);
         return $list;
     }
 
