@@ -15,9 +15,6 @@ class GatewayService
     public function push(array $taskList)
     {
         /** 是否开始事物 */
-        $isTransaction = DbManager::getInstance()->invoke(function (ClientInterface $client) {
-            return DbManager::isInTransaction($client);
-        });
         $dbManager = Di::getInstance()->get(AsaEsConst::DI_MYSQL_DEFAULT);
         $isTransaction = method_exists($dbManager, 'isTransactionInProgress') && $dbManager->isTransactionInProgress();
 
