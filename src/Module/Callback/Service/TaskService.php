@@ -21,7 +21,7 @@ class TaskService extends BaseCallbackService
     {
         /** 推送系统列表 */
         $pushList = $this->getDaoObj()->pushList($task->getApiCode());
-        if (superEmpty($pushList)) {
+        if (Tools::superEmpty($pushList)) {
             throw new MsgException(7101, '未找到api:' . $task->getApiCode() . '的推送配置');
         }
 
