@@ -33,7 +33,7 @@ class GatewayService
 
             /** 任务投递成功后发布 */
             $redis = Di::getInstance()->get(AsaEsConst::DI_REDIS_DEFAULT);
-            $redisKey = strtolower(\App\AppConst\AppInfo::APP_EN_NAME . '_' . \App\AppConst\EnvConst::REDIS_KEY_ES3_SERVER_PORT . '_' . CallbackConst::REDIS_CALL_CHANNEL);
+            $redisKey = strtolower(\App\AppConst\AppInfo::APP_EN_NAME . '_' . \App\AppConst\AppInfo::REDIS_KEY_ES3_SERVER_PORT . '_' . CallbackConst::REDIS_CALL_CHANNEL);
             $redis->publish($redisKey, 'INVALID');
 
         } catch (\Throwable $throwable) {
