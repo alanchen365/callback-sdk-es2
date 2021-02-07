@@ -48,6 +48,10 @@ class TaskService extends BaseCallbackService
             $taskCode = md5($taskCode . $push['system_code'] ?? null);
             $headers = array_merge(json_decode($push['request_header'], true) ?? [], $task->getRequestHeader() ?? []);
 
+            $env = strtoupper(EnvConst::ENV);
+            if ($env == 'DEVELOP') {
+                $env = 'DEV';
+            }
             $tasks[] = [
                 'task_code' => md5($taskCode),
                 'system_id' => $push['system_id'],
@@ -57,7 +61,7 @@ class TaskService extends BaseCallbackService
                 'request_method' => $push['request_method'],
                 'request_type' => $push['request_type'],
                 'request_param' => json_encode($task->getRequestParams()),
-                'env' => strtoupper(EnvConst::ENV),
+                'env' => $env,
             ];
         }
 
