@@ -17,6 +17,9 @@ class TaskDao extends BaseDao
     public function pushList(string $apiCode)
     {
         $env = strtoupper(EnvConst::ENV);
+        if ($env == 'DEVELOP') {
+            $env = 'DEV';
+        }
         $sql = "
             SELECT
                 system.id system_id,
